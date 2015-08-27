@@ -30,6 +30,7 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cNN-Xn-luO" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="1gl-DZ-l7f"/>
                             <constraint firstItem="NYY-5x-O7E" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9q9-kB-d5Q"/>
@@ -41,6 +42,9 @@
                             <constraint firstItem="cNN-Xn-luO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hOI-zp-xga"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="cNN-Xn-luO" id="7IT-Ie-Wae"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
