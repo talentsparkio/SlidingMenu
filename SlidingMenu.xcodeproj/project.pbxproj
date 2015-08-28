@@ -12,6 +12,7 @@
 		20A10F121B8ED31B00D903D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20A10F101B8ED31B00D903D9 /* Main.storyboard */; };
 		20A10F141B8ED31B00D903D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20A10F131B8ED31B00D903D9 /* Assets.xcassets */; };
 		20A10F171B8ED31B00D903D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20A10F151B8ED31B00D903D9 /* LaunchScreen.storyboard */; };
+		20A10F1F1B90185A00D903D9 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A10F1E1B90185A00D903D9 /* ContentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		20A10F131B8ED31B00D903D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20A10F161B8ED31B00D903D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20A10F181B8ED31B00D903D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20A10F1E1B90185A00D903D9 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				20A10F0C1B8ED31B00D903D9 /* AppDelegate.swift */,
 				20A10F0E1B8ED31B00D903D9 /* ViewController.swift */,
+				20A10F1E1B90185A00D903D9 /* ContentViewController.swift */,
 				20A10F101B8ED31B00D903D9 /* Main.storyboard */,
 				20A10F131B8ED31B00D903D9 /* Assets.xcassets */,
 				20A10F151B8ED31B00D903D9 /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20A10F0F1B8ED31B00D903D9 /* ViewController.swift in Sources */,
+				20A10F1F1B90185A00D903D9 /* ContentViewController.swift in Sources */,
 				20A10F0D1B8ED31B00D903D9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

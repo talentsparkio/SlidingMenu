@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -23,23 +24,23 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNN-Xn-luO" userLabel="Content View">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
-                                    <segue destination="JHS-Ep-yqu" kind="embed" id="4SI-Z8-19O"/>
+                                    <segue destination="JHS-Ep-yqu" kind="embed" identifier="contentViewController" id="4SI-Z8-19O"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="cNN-Xn-luO" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="1gl-DZ-l7f"/>
                             <constraint firstItem="NYY-5x-O7E" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9q9-kB-d5Q"/>
-                            <constraint firstAttribute="trailing" secondItem="cNN-Xn-luO" secondAttribute="trailing" id="A4G-jS-Ygj"/>
+                            <constraint firstItem="cNN-Xn-luO" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="A4G-jS-Ygj"/>
+                            <constraint firstItem="cNN-Xn-luO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Aiz-wi-rtC"/>
                             <constraint firstItem="NYY-5x-O7E" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Cdg-0f-tcZ"/>
                             <constraint firstItem="NYY-5x-O7E" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Gh5-qT-TDT"/>
                             <constraint firstItem="NYY-5x-O7E" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="H57-hG-14n"/>
                             <constraint firstItem="cNN-Xn-luO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jqo-bV-ANr"/>
-                            <constraint firstItem="cNN-Xn-luO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hOI-zp-xga"/>
+                            <constraint firstItem="cNN-Xn-luO" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="XL4-Xd-doi"/>
                         </constraints>
                     </view>
                     <connections>
@@ -129,9 +130,9 @@
         <!--Content-->
         <scene sceneID="6y3-A6-Wab">
             <objects>
-                <tableViewController id="8ch-A9-L0n" sceneMemberID="viewController">
+                <tableViewController id="8ch-A9-L0n" customClass="ContentViewController" customModule="SlidingMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2qe-k0-6Xp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -151,7 +152,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Content" id="fm4-9q-gOx">
-                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="NlE-2H-cQd"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="NlE-2H-cQd">
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="8ch-A9-L0n" id="eBI-RH-Hr3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOg-7u-D2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
