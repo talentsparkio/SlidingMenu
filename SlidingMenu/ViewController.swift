@@ -39,6 +39,12 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UIGestureReco
         super.viewDidAppear(animated)
         
         setupAnimation()
+        
+        contentView.layer.shadowColor = UIColor.blackColor().CGColor
+        contentView.layer.shadowOpacity = 1.0;
+        contentView.layer.shadowPath = UIBezierPath(rect: contentView.bounds).CGPath
+        contentView.layer.shadowOffset = CGSizeZero;
+        contentView.layer.shadowRadius = 5.0;
     }
     
     func setupAnimation() {
