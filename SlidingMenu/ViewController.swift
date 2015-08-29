@@ -12,9 +12,13 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UIGestureReco
     let RIGHT_EDGE_INSET = CGFloat(50.0)
     
     @IBOutlet weak var contentView: UIView!
+    
+    var isMenuOpen = false
+
     var animator: UIDynamicAnimator!
     let gravityBehavior = UIGravityBehavior()
     let pushBehavior = UIPushBehavior(items: [], mode: UIPushBehaviorMode.Instantaneous)
+    var panAttachmentBehavior: UIAttachmentBehavior!
     
     // You need to set up screen edge gesture recognizers programmatically
     // There is a bug in interface builder
@@ -63,7 +67,7 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UIGestureReco
         
         // Add a slight push to help move things along - no push initially
         pushBehavior.addItem(contentView)
-        pushBehavior.angle = 0.0
+        pushBehavior.magnitude = 0.0
         pushBehavior.angle = 0.0
         animator.addBehavior(pushBehavior)
         
@@ -91,11 +95,45 @@ class ViewController: UIViewController, UIDynamicAnimatorDelegate, UIGestureReco
         super.didReceiveMemoryWarning()
     }
     
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if (gestureRecognizer === leftScreenEdgeGestureRecognizer && isMenuOpen == false) {
+            return true
+        } else if (gestureRecognizer === rightScreenEdgeGestureRecognizer && isMenuOpen == true) {
+            return true
+        }
+        
+        return false
     }
     
     func handleScreenEdgePan(recognizer: UIScreenEdgePanGestureRecognizer) {
+        var location = recognizer.locationInView(view)
+        location.y = CGRectGetMidY(contentView.bounds)
+        
+        if (recognizer.state == UIGestureRecognizerState.Began) {
+            animator.removeBehavior(gravityBehavior)
+            panAttachmentBehavior = UIAttachmentBehavior(item: contentView, attachedToAnchor:location)
+            animator.addBehavior(panAttachmentBehavior)
+        } else if (recognizer.state == UIGestureRecognizerState.Changed) {
+            panAttachmentBehavior.anchorPoint = location
+        } else if (recognizer.state == UIGestureRecognizerState.Ended) {
+            animator.removeBehavior(panAttachmentBehavior)
+            
+            let velocity = recognizer.velocityInView(view)
+            
+            if(velocity.x > 0) { // opening the menu
+                isMenuOpen = true
+                gravityBehavior.gravityDirection = CGVectorMake(1,0)
+            } else { // closing the menu
+                isMenuOpen = false
+                gravityBehavior.gravityDirection = CGVectorMake(-1,0)
+            }
+            
+            animator.addBehavior(gravityBehavior)
+            
+            pushBehavior.pushDirection = CGVectorMake(velocity.x / 10.0, 0.0)
+            pushBehavior.active = true
+        }
+        
     }
 }
 
