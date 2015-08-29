@@ -290,6 +290,7 @@
 				20A10F1D1B8ED31B00D903D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
